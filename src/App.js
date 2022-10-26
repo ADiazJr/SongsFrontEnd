@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MusicTable from "./Components/MusicTable";
 import SearchBar from "./Components/SearchBar";
+import CreateSongForm from "./Components/CreateSongForm";
 
 function App() {
 
@@ -22,10 +23,20 @@ function App() {
     setSongs(filteredSongs);
   }
 
+  async function createSong(newSong){
+    let response = await axios.post('http://127.0.0.1:8000/api/music/', newSong);
+    if(response.status === 201){
+      await getAllSongs();
+    }
+  }
+
   return (
     <div>
+      <h3>Music Library</h3>
       <SearchBar getAllSearchSongs={getAllSearchSongs}/>
       <MusicTable songList={songs} />
+      <h3>Add Song</h3>
+      <CreateSongForm  createSong={createSong} />
     </div>
   );
 }

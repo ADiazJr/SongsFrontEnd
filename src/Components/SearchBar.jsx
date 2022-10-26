@@ -2,11 +2,11 @@ import React, { useState } from "react";
 
 const SearchBar = (props) => {
 
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState('');
 
     function handleChange(formEvent){
         formEvent.preventDefault();
-        props.getAllSearchSongs(search)
+        props.getAllSearchSongs(search);
     }
 
     return ( 
