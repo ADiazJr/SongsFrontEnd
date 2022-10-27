@@ -1,0 +1,36 @@
+.border-box {
+    border: 1px;
+    border-style: solid;
+    border-color: black;   
+    margin: 1rem;
+    padding: 1em;
+   }
+
+.header {
+    margin: .5rem;
+    padding: .5em;
+}
+
+.navigationbar {
+    font-family: fantasy;
+    margin: .5rem;
+    padding: .5em;
+    border-right: 0px;
+    border-left: 0px;
+    border-top: 0px;
+    border-bottom: 3px black;
+    border-style: solid;
+}
+
+.formlabel{
+    margin: 5px;
+}
+
+.search-bar{
+    text-align: center;
+    border: 1px;
+    border-style: solid;
+    border-color: black;   
+    margin: 1rem;
+    padding: .5em;
+}

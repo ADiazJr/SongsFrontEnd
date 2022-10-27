@@ -3,6 +3,7 @@ import axios from "axios";
 import MusicTable from "./Components/MusicTable";
 import SearchBar from "./Components/SearchBar";
 import CreateSongForm from "./Components/CreateSongForm";
+import './App.css'
 
 function App() {
 
@@ -15,7 +16,6 @@ function App() {
   async function getAllSongs(){
     let response = await axios.get('http://127.0.0.1:8000/api/music/');
     setSongs(response.data);
-    console.log(response.data); 
   }
 
   async function getAllSearchSongs(search){
@@ -30,13 +30,27 @@ function App() {
     }
   }
 
+  async function deleteSong(index){
+    let response = await axios.delete(`http://127.0.0.1:8000/api/music/${index}`);
+    if(response.status === 204){
+      await getAllSongs();
+    }
+  }
+
   return (
     <div>
-      <h3>Music Library</h3>
-      <SearchBar getAllSearchSongs={getAllSearchSongs}/>
-      <MusicTable songList={songs} />
-      <h3>Add Song</h3>
-      <CreateSongForm  createSong={createSong} />
+      <h2 className="navigationbar">Music Library</h2>
+      <h3 className="header">Song List</h3>
+      <div className='search-bar'>
+        <SearchBar getAllSearchSongs={getAllSearchSongs}/>
+      </div>
+      <div className="border-box" >
+        <MusicTable songList={songs} deleteSong={deleteSong} />
+      </div>
+      <h3 className="header">Add Song</h3>
+      <div className="border-box">
+        <CreateSongForm  createSong={createSong} />
+      </div>
     </div>
   );
 }

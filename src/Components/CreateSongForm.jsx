@@ -22,17 +22,17 @@ const CreateSongForm = (props) => {
 
     return ( 
         <form onSubmit={handleSubmit}>
-            <label>Title</label>
+            <label className='formlabel'>Title</label>
             <input type='string' value={title} onChange={(event) => setTitle(event.target.value)} />
-            <label>Artist</label>
+            <label className='formlabel'>Artist</label>
             <input type='string' value={artist} onChange={(event) => setArtist(event.target.value)} />
-            <label>Album</label>
+            <label className='formlabel'>Album</label>
             <input type='string' value={album} onChange={(event) => setAlbum(event.target.value)} />
-            <label>Release Date</label>
+            <label className='formlabel'>Release Date</label>
             <input type='date' value={releaseDate} onChange={(event) => setReleaseDate(event.target.value)} />
-            <label>Genre</label>
+            <label className='formlabel'>Genre</label>
             <input type='string' value={genre} onChange={(event) => setGenre(event.target.value)} />
-            <input type='submit' value='Submit' />
+            <input className='formlabel' type='submit' value='Submit' />
         </form>
      );
 }
